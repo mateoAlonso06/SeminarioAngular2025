@@ -1,0 +1,48 @@
+<table class="table table-dark table-striped table-borderless align-middle">
+  <thead class="bg-secondary">
+    <tr>
+      <th></th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Compras</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (s of sneakers; track s.name) {
+    <tr [ngClass]="{ 'table-success': s.clearence }">
+      <td>
+        <img width="200" class="img-fluid" [src]="s.image" [alt]="s.name" />
+      </td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.type }}</td>
+      <td>{{ s.price | currency }}</td>
+      @if (s.stock > 0) {
+      <td>{{ s.stock }}</td>
+      } @else {
+      <td class="badge rounded-pill text-bg-warning">SIN STOCK</td>
+      }
+      <td>
+        @if (s.stock > 0) {
+        <button class="btn btn-primary me-2 mb-2" (click)="upQuantity(s)">
+          +
+        </button>
+        <input
+          type="number"
+          [(ngModel)]="s.quantity"
+          (ngModelChange)="onChangeQuantity(s)"
+          [attr.min]="0"
+          [attr.max]="s.stock"
+        />
+        }
+        <button class="btn btn-primary" (click)="downQuantity(s)">
+          -
+        </button>
+      </td>
+    </tr>
+    } @empty {
+    <td colspan="4">No hay sneakers para mostrar.</td>
+    }
+  </tbody>
+</table>
