@@ -46,39 +46,4 @@ export class SneakersListComponent {
       quantity: 0,
     },
   ];
-
-  public upQuantity(sneaker: Sneaker): void {
-    if (sneaker.stock != 0) {
-      sneaker.quantity++;
-      sneaker.stock--;
-    }
-  }
-
-  public downQuantity(sneaker: Sneaker): void {
-    if (sneaker.quantity > 0) {
-      sneaker.quantity--;
-      sneaker.stock++;
-    }
-  }
-
-  onChangeQuantity(s: Sneaker): void {
-    let q = Number(s.quantity) || 0;
-
-    if (q < 0) {
-      q = 0;
-    } else if (q > s.stock) {
-      q = s.stock;
-    }
-
-    s.quantity = q;
-    s.stock = s.stock - s.quantity;
-    this.updateCartSummary();
-  }
-
-  private updateCartSummary(): void {
-    const totalItems = this.sneakers
-      .map((s) => s.quantity)
-      .reduce((sum, qty) => sum + qty, 0);
-    console.log(`Total items en carrito: ${totalItems}`);
-  }
 }
