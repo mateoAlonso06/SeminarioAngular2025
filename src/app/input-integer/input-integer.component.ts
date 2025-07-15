@@ -7,15 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './input-integer.component.scss',
 })
 export class InputIntegerComponent {
-  @Input()
-  quantity!: number;
-  @Input()
-  max!: number;
+  @Input() quantity!: number;
+  @Input() max!: number;
 
-  @Output()
-  quantityChange: EventEmitter<number> = new EventEmitter<number>();
-  @Output()
-  maxChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() quantityChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() maxChange: EventEmitter<number> = new EventEmitter<number>();
 
   public upQuantity(): void {
     if (this.quantity < this.max) {
@@ -32,6 +28,7 @@ export class InputIntegerComponent {
   }
 
   onChangeQuantity(event: any) {
+    // todo : validar
     console.log(event.key);
     this.quantityChange.emit(this.quantity);
   }

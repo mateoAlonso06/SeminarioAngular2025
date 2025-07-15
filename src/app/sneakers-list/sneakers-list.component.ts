@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Sneaker } from '../models/sneaker.model';
+import { SneakerCartService } from '../sneaker-cart.service';
 
 @Component({
   selector: 'app-sneakers-list',
@@ -46,4 +47,12 @@ export class SneakersListComponent {
       quantity: 0,
     },
   ];
+
+  constructor(private cart : SneakerCartService) { }
+
+  addToCart(sneaker : Sneaker) : void {
+    this.cart.addToCart(sneaker);
+    sneaker.stock = Math.max(0, sneaker.stock - sneaker.quantity);
+    sneaker.quantity = 0;
+  }
 }

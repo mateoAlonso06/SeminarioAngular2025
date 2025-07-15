@@ -33,6 +33,7 @@
             }
             <td class="text-center">
               <app-input-integer [(quantity)]="s.quantity" [(max)]="s.stock"></app-input-integer>
+              <button class="btn btn-primary" (click)="addToCart(s)">Comprar</button>
             </td>
           </tr>
           } @empty {
