@@ -7,12 +7,16 @@ import { Observable } from 'rxjs';
   selector: 'app-cart',
   standalone: false,
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  styleUrl: './cart.component.scss',
 })
 export class CartComponent {
-  cartList$ : Observable<Sneaker[]> = new Observable();
+  cartList$: Observable<Sneaker[]> = new Observable();
 
-  constructor(private cart : SneakerCartService) {
+  constructor(private cart: SneakerCartService) {
     this.cartList$ = cart.cartList.asObservable();
+  }
+
+  removeFromCart(_t7: Sneaker) {
+    throw new Error('Method not implemented.');
   }
 }

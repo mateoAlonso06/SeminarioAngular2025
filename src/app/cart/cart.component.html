@@ -1,6 +1,38 @@
-<h3>Carrito de compras</h3>
-<ul>
-  @for (sneaker of cartList$ | async; track $index) {
-    <li> {{sneaker.name}}: {{ sneaker.quantity}} </li>
-  }
-</ul>
+<div class="card mb-4 shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Carrito de compras</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li
+      *ngFor="let sneaker of cartList$ | async; let i = index"
+      class="list-group-item d-flex align-items-center justify-content-between"
+    >
+      <div class="d-flex align-items-center">
+        <img
+          [src]="sneaker.image"
+          [alt]="sneaker.name"
+          class="img-thumbnail me-3"
+          style="width: 60px; height: 60px; object-fit: cover"
+        />
+        <div>
+          <h6 class="mb-0">{{ sneaker.name }}</h6>
+          <small class="text-muted">Cantidad: {{ sneaker.quantity }}</small>
+        </div>
+      </div>
+
+      <button
+        class="btn btn-sm btn-outline-danger"
+        (click)="removeFromCart(sneaker)"
+      >
+        ✕
+      </button>
+    </li>
+
+    <li
+      *ngIf="(cartList$ | async)?.length === 0"
+      class="list-group-item text-center text-muted"
+    >
+      Tu carrito está vacío
+    </li>
+  </ul>
+</div>

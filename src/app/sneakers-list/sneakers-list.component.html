@@ -1,44 +1,71 @@
 <div class="card mb-4 shadow-sm">
-  <div class="card-header bg-primary text-white">
-    <h4 class="mb-0">Sneakers Disponibles</h4>
+  <div class="card-header bg-dark text-white">
+    <h4 class="mb-0 title-heading">Sneakers Disponibles</h4>
   </div>
+
   <div class="card-body p-0">
     <div class="table-responsive">
-      <table class="table table-hover table-striped table-bordered table-sm align-middle mb-0">
-        <thead class="table-light">
+      <table
+        class="table table-borderless table-hover table-sm align-middle mb-0"
+      >
+        <thead class="table-primary">
           <tr>
-            <th></th>
+            <th class="ps-3"></th>
             <th>Nombre</th>
             <th>Tipo</th>
             <th class="text-end">Precio</th>
             <th class="text-center">Stock</th>
-            <th class="text-center">Compras</th>
+            <th class="text-center">Acciones</th>
           </tr>
         </thead>
         <tbody>
           @for (s of sneakers; track s.name) {
-          <tr [ngClass]="{ 'clearence': s.clearence }">
-            <td>
-              <img class="img-fluid w-50" [src]="s.image" [alt]="s.name" />
+          <tr [ngClass]="{ 'table-warning': s.clearence }">
+            <td class="p-1">
+              <img
+                [src]="s.image"
+                [alt]="s.name"
+                class="img-fluid"
+                style="max-width: 80px; object-fit: cover"
+              />
             </td>
-            <td>{{ s.name }}</td>
-            <td>{{ s.type }}</td>
-            <td class="fw-bold text-end">{{ s.price | currency }}</td>
+
+            <td class="fw-semibold">{{ s.name }}</td>
+            <td class="text-muted">{{ s.type }}</td>
+            <td class="text-end text-success fw-bold">
+              {{ s.price | currency }}
+            </td>
+
             @if (s.stock > 0) {
             <td class="text-center">{{ s.stock }}</td>
             } @else {
             <td class="text-center">
-              <span class="badge bg-warning text-dark">SIN STOCK</span>
+              <span class="badge bg-danger">SIN STOCK</span>
             </td>
             }
+
             <td class="text-center">
-              <app-input-integer [(quantity)]="s.quantity" [(max)]="s.stock"></app-input-integer>
-              <button class="btn btn-primary" (click)="addToCart(s)">Comprar</button>
+              <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center">
+                <app-input-integer
+                  class="me-sm-2 mb-2 mb-sm-0"
+                  [(quantity)]="s.quantity"
+                  [(max)]="s.stock"
+                ></app-input-integer>
+                <button
+                  class="btn btn-sm btn-success w-100 w-sm-auto"
+                  (click)="addToCart(s)"
+                  [disabled]="s.quantity === 0"
+                >
+                  Comprar
+                </button>
+              </div>
             </td>
           </tr>
           } @empty {
           <tr>
-            <td colspan="6" class="text-center py-4">No hay sneakers para mostrar.</td>
+            <td colspan="6" class="text-center py-4 text-muted">
+              No hay sneakers para mostrar.
+            </td>
           </tr>
           }
         </tbody>
