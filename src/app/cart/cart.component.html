@@ -1,5 +1,5 @@
 <div class="card mb-4 shadow-sm">
-  <div class="card-header bg-primary text-white">
+  <div class="card-header bg-dark text-white">
     <h5 class="mb-0">Carrito de compras</h5>
   </div>
   <ul class="list-group list-group-flush">
@@ -20,10 +20,7 @@
         </div>
       </div>
 
-      <button
-        class="btn btn-sm btn-outline-danger"
-        (click)="removeFromCart(sneaker)"
-      >
+      <button class="btn btn-sm btn-outline-danger" (click)="onRemove(sneaker)">
         ✕
       </button>
     </li>
@@ -36,3 +33,11 @@
     </li>
   </ul>
 </div>
+
+<button
+  class="btn btn-primary"
+  (click)="onBuy()"
+  [disabled]="!(hasItems$ | async)"
+>
+  Comprar
+</button>

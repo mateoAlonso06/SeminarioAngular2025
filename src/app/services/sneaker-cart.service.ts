@@ -12,7 +12,7 @@ export class SneakerCartService {
 
   constructor() {}
 
-  addToCart(sneaker: Sneaker) {
+  public addToCart(sneaker: Sneaker) {
     if (!this.existeProducto(sneaker)) {
       this._cartList.push({...sneaker});
     } else {

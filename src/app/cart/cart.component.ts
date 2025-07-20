@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SneakerCartService } from '../sneaker-cart.service';
 import { Sneaker } from '../models/sneaker.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -12,11 +12,20 @@ import { Observable } from 'rxjs';
 export class CartComponent {
   cartList$: Observable<Sneaker[]> = new Observable();
 
+  hasItems$: Observable<boolean>;
+
   constructor(private cart: SneakerCartService) {
     this.cartList$ = cart.cartList.asObservable();
+    this.hasItems$ = this.cartList$.pipe(
+      map((items) => items.length > 0)
+    );
   }
 
-  removeFromCart(_t7: Sneaker) {
-    throw new Error('Method not implemented.');
+  onRemove(sneaker: Sneaker) {
+    this.cart.removeFromCart(sneaker);
+  }
+
+  onBuy() {
+    // TODO: hacer enrutamiento hacia el formulario
   }
 }

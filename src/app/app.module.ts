@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { SneakersShopComponent } from './sneakers-shop/sneakers-shop.component';
 import { CartComponent } from './cart/cart.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { BuyFormComponent } from './buy-form/buy-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
     AboutComponent,
     SneakersShopComponent,
     CartComponent,
-    InputIntegerComponent
+    InputIntegerComponent,
+    BuyFormComponent
   ],
   imports: [
     BrowserModule,
