@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SneakersShopComponent } from './components/sneakers-shop/sneakers-shop.component';
 import { AboutComponent } from './components/about/about.component';
-import { BuyFormComponent } from './components/buy-form/buy-form.component';
+import { LoadSneakerComponent } from './components/load-sneaker/load-sneaker-form.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: AboutComponent,
   },
   {
-    path: 'buy',
-    component: BuyFormComponent
+    path: 'load-sneaker',
+    component: LoadSneakerComponent
   },
 ];
 

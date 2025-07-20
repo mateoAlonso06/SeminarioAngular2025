@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           @for (s of sneakers; track s.name) {
-          <tr [ngClass]="{ 'table-warning': s.clearence }">
+          <tr>
             <td class="p-1">
               <img
                 [src]="s.image"
@@ -56,7 +56,7 @@
                   (click)="addToCart(s)"
                   [disabled]="s.quantity === 0"
                 >
-                  Agregar al carrito
+                  Agregar
                 </button>
               </div>
             </td>

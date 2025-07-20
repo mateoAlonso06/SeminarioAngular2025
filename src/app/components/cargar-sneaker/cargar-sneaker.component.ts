@@ -12,6 +12,6 @@ export class CargarSneakerComponent {
   }
 
   onClick() {
-    this.router.navigate(['/buy']);
+    this.router.navigate(['/load-sneaker']);
   }
 }

@@ -1,9 +1,8 @@
 export interface Sneaker {
   name : string,
   type: string,
+  image: string,
   price: number,
   stock: number,
-  image: string,
-  clearence: boolean,
   quantity: number;
 }

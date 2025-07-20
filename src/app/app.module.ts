@@ -11,8 +11,8 @@ import { AboutComponent } from './components/about/about.component';
 import { SneakersShopComponent } from './components/sneakers-shop/sneakers-shop.component';
 import { CartComponent } from './components/cart/cart.component';
 import { InputIntegerComponent } from './components/input-integer/input-integer.component';
-import { BuyFormComponent } from './components/buy-form/buy-form.component';
 import { CargarSneakerComponent } from './components/cargar-sneaker/cargar-sneaker.component';
+import { LoadSneakerComponent } from './components/load-sneaker/load-sneaker-form.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { CargarSneakerComponent } from './components/cargar-sneaker/cargar-sneak
     SneakersShopComponent,
     CartComponent,
     InputIntegerComponent,
-    BuyFormComponent,
     CargarSneakerComponent,
+    LoadSneakerComponent
   ],
   imports: [
     BrowserModule,

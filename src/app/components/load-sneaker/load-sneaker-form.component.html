@@ -1,0 +1,97 @@
+<div class="container my-5">
+  <div class="card border-primary mx-auto" style="max-width: 600px;">
+    <div class="card-header bg-primary text-white text-center p-3">
+      <h4 class="mb-0">Agregar Nuevo Sneaker</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formNewSneaker" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="row gx-3 mb-4">
+          <div class="col-6">
+            <label for="name" class="form-label">Nombre</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text"><i class="bi bi-tag-fill"></i></span>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Ej. Air Zoom"
+                [class.is-invalid]="
+                  formNewSneaker.get('name')?.touched &&
+                  formNewSneaker.get('name')?.invalid
+                "
+              />
+              <div class="invalid-feedback">
+                El nombre es obligatorio.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="type" class="form-label">Tipo</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text"><i class="bi bi-tags"></i></span>
+              <select
+                id="type"
+                class="form-select"
+                formControlName="type"
+                [class.is-invalid]="
+                  formNewSneaker.get('type')?.touched &&
+                  formNewSneaker.get('type')?.invalid
+                "
+              >
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="running">Running</option>
+                <option value="casual">Casual</option>
+                <option value="basket">Basket</option>
+                <option value="training">Training</option>
+              </select>
+              <div class="invalid-feedback">
+                El tipo es obligatorio.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="imageUrl" class="form-label">URL de Imagen</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text"><i class="bi bi-image"></i></span>
+            <input
+              id="imageUrl"
+              type="url"
+              class="form-control"
+              formControlName="imageUrl"
+              placeholder="https://ejemplo.com/imagen.jpg"
+              [class.is-invalid]="
+                formNewSneaker.get('imageUrl')?.touched &&
+                formNewSneaker.get('imageUrl')?.invalid
+              "
+            />
+            <div class="invalid-feedback">
+              Ingresa una URL válida (http/https).
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="formNewSneaker.reset({ name:'', type:'', imageUrl:'', price:0, stock:0})"
+          >
+            <i class="bi bi-x-lg me-1"></i> Limpiar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="formNewSneaker.invalid"
+          >
+            <i class="bi bi-plus-circle me-1"></i> Agregar Sneaker
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
