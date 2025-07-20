@@ -12,6 +12,6 @@ El proyecto consiste en el desarrollo de una **aplicación web de tienda de zapa
 * **DNI:** 43.855.104
 * **Email:** alonsomateo2002@gmail.com
 * **Sede:** Tandil
-* 
+
 ---
-* **Proyecto StackBlitz (editable):** [https://stackblitz.com/edit/angular-ivy-nn](https://stackblitz.com/edit/angular-ivy-nn)](https://stackblitz.com/~/github.com/mateoAlonso06/SeminarioAngular2025)
+* **Proyecto StackBlitz (editable):** (https://stackblitz.com/~/github.com/mateoAlonso06/SeminarioAngular2025)

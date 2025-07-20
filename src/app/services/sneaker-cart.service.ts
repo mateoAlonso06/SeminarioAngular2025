@@ -11,12 +11,14 @@ export class SneakerCartService {
 
   constructor() {}
   addToCart(sneaker: Sneaker) {
-    if (!this.existeProducto(sneaker)) {
-      this._cartList.push({ ...sneaker });
+    // Busco si ese sneaker ya está en el carrito
+    const productoExistente = this._cartList.find(item => item.name === sneaker.name);
+
+    if (productoExistente) {
+      productoExistente.quantity += sneaker.quantity;
     } else {
-      sneaker.quantity += sneaker.quantity;
+      this._cartList.push({ ...sneaker });
     }
-    this.cartList.next(this._cartList); // equivalente al emit de eventos
   }
 
   removeFromCart(sneaker: Sneaker) {
