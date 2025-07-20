@@ -1,0 +1,89 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-center">Cargar Nuevo Sneaker</h4>
+
+          <form [formGroup]="formNewSneaker" (ngSubmit)="onSubmit()" novalidate>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre del Sneaker</label>
+              <input
+                id="name"
+                type="text"
+                formControlName="name"
+                class="form-control"
+                placeholder="Ingrese el nombre"
+                [class.is-invalid]="
+                  formNewSneaker.get('name')?.touched &&
+                  formNewSneaker.get('name')?.invalid
+                "
+              />
+              <div class="invalid-feedback">
+                El nombre es obligatorio.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="type" class="form-label">Tipo</label>
+              <select
+                id="type"
+                formControlName="type"
+                class="form-select"
+                [class.is-invalid]="
+                  formNewSneaker.get('type')?.touched &&
+                  formNewSneaker.get('type')?.invalid
+                "
+              >
+                <option value="" disabled>Seleccione un tipo</option>
+                <option value="running">Running</option>
+                <option value="casual">Casual</option>
+                <option value="basket">Basket</option>
+                <option value="training">Training</option>
+              </select>
+              <div class="invalid-feedback">
+                El tipo es obligatorio.
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="image" class="form-label">Imagen</label>
+              <input
+                id="image"
+                type="file"
+                accept="image/*"
+                (change)="onFileSelected($event)"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  imageError &&
+                  formNewSneaker.get('image')?.touched
+                "
+                class="text-danger small mt-1"
+              >
+                Debes seleccionar una imagen.
+              </div>
+            </div>
+
+            <!-- <input type="hidden" formControlName="price" />
+            <input type="hidden" formControlName="stock" />
+            <input type="hidden" formControlName="sales" /> -->
+
+            <div class="d-grid">
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="formNewSneaker.invalid || !selectedFile"
+              >
+                Agregar Sneaker
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

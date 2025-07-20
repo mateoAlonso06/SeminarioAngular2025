@@ -3,15 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SneakersListComponent } from './sneakers-list/sneakers-list.component';
+import { SneakersListComponent } from './components/sneakers-list/sneakers-list.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
-import { AboutComponent } from './about/about.component';
-import { SneakersShopComponent } from './sneakers-shop/sneakers-shop.component';
-import { CartComponent } from './cart/cart.component';
-import { InputIntegerComponent } from './input-integer/input-integer.component';
-import { BuyFormComponent } from './buy-form/buy-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about/about.component';
+import { SneakersShopComponent } from './components/sneakers-shop/sneakers-shop.component';
+import { CartComponent } from './components/cart/cart.component';
+import { InputIntegerComponent } from './components/input-integer/input-integer.component';
+import { BuyFormComponent } from './components/buy-form/buy-form.component';
+import { CargarSneakerComponent } from './components/cargar-sneaker/cargar-sneaker.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { BuyFormComponent } from './buy-form/buy-form.component';
     SneakersShopComponent,
     CartComponent,
     InputIntegerComponent,
-    BuyFormComponent
+    BuyFormComponent,
+    CargarSneakerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

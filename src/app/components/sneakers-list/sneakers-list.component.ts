@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Sneaker } from '../models/sneaker.model';
-import { SneakerCartService } from '../sneaker-cart.service';
-import { SneakerDataService } from '../services/sneaker-data.service';
+import { Sneaker } from '../../models/sneaker.model';
+import { SneakerDataService } from '../../services/sneaker-data.service';
+import { SneakerCartService } from '../../services/sneaker-cart.service';
 
 @Component({
   selector: 'app-sneakers-list',

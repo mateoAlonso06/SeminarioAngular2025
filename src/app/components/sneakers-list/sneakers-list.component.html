@@ -52,11 +52,11 @@
                   [(max)]="s.stock"
                 ></app-input-integer>
                 <button
-                  class="btn btn-sm btn-success w-100 w-sm-auto"
+                  class="btn btn-sm btn-success btn-add"
                   (click)="addToCart(s)"
                   [disabled]="s.quantity === 0"
                 >
-                  Comprar
+                  Agregar al carrito
                 </button>
               </div>
             </td>
@@ -73,5 +73,3 @@
     </div>
   </div>
 </div>
-
-<app-buy-form></app-buy-form>

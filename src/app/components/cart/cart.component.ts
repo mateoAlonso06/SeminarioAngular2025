@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SneakerCartService } from '../sneaker-cart.service';
-import { Sneaker } from '../models/sneaker.model';
+import { Sneaker } from '../../models/sneaker.model';
 import { map, Observable } from 'rxjs';
+import { SneakerCartService } from '../../services/sneaker-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,6 +26,5 @@ export class CartComponent {
   }
 
   onBuy() {
-    // TODO: hacer enrutamiento hacia el formulario
   }
 }

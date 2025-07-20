@@ -1,26 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SneakersShopComponent } from './sneakers-shop/sneakers-shop.component';
-import { AboutComponent } from './about/about.component';
+import { SneakersShopComponent } from './components/sneakers-shop/sneakers-shop.component';
+import { AboutComponent } from './components/about/about.component';
+import { BuyFormComponent } from './components/buy-form/buy-form.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'sneaker-shop',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'sneaker-shop',
-    component: SneakersShopComponent
+    component: SneakersShopComponent,
   },
   {
     path: 'about',
-    component: AboutComponent
-  }
+    component: AboutComponent,
+  },
+  {
+    path: 'buy',
+    component: BuyFormComponent
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
