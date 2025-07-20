@@ -45,18 +45,24 @@
             }
 
             <td class="text-center">
-              <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center">
+              <div
+                class="d-flex flex-column flex-sm-row align-items-center justify-content-center"
+              >
                 <app-input-integer
                   class="me-sm-2 mb-2 mb-sm-0"
                   [(quantity)]="s.quantity"
                   [(max)]="s.stock"
                 ></app-input-integer>
                 <button
-                  class="btn btn-sm btn-success btn-add"
+                  class="btn btn-sm btn-add"
+                  [ngClass]="{
+                    'btn-success': s.stock > 0,
+                    'btn-danger': s.stock === 0
+                  }"
                   (click)="addToCart(s)"
                   [disabled]="s.quantity === 0"
                 >
-                  Agregar
+                  Añadir
                 </button>
               </div>
             </td>
