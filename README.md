@@ -14,4 +14,6 @@ El proyecto consiste en el desarrollo de una **aplicación web de tienda de zapa
 * **Sede:** Tandil
 
 ---
-* **Proyecto StackBlitz (editable):** (https://stackblitz.com/~/github.com/mateoAlonso06/SeminarioAngular2025)
+* **Proyecto StackBlitz:** https://stackblitz.com/~/github.com/mateoAlonso06/SeminarioAngular2025
+* 
+* **Mockapi**: https://6871b54776a5723aacd295cf.mockapi.io/api/v1/sneakers
